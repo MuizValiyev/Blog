@@ -1,31 +1,31 @@
 {% extends "main/base.html" %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
-<h1>{{ post.title }}</h1>
-<p class="date">
+<h1 style="color: #fff;">{{ post.title }}</h1>
+<p class="date" style="color: #fff;">
 Published {{ post.publish }} by {{ post.author }}
 </p>
 {{ post.body|linebreaks }}
 
-<p>
-    <a href="{% url "main:post_share" post.id %}">
+<a style="background-color: #A259FF; width: 200px; height: 40px; text-align: center; border-radius: 10px;" href="{% url "main:post_share" post.id %}">
+    <p style=" width: 200px;color: #fff; height: 40px; line-height: 40px;margin: 0; font-size: 12px;">
         Share this post
-    </a>
-</p>
+    </p>
+</a>
 
 {% with comments.count as total_comments %}
-<h2>
+<h2 style="color: #fff;">
 {{ total_comments }} comment{{ total_comments|pluralize }}
 </h2>
 {% endwith %}
 
 {% for comment in comments %}
-<div class="comment">
-<p class="info">
+<div class="comment" style="background-color: #2b2b2b; width: 380px; border-radius: 10px; margin-top: 10px;">
+<p class="info" style="color: #fff;">
 Comment {{ forloop.counter }} by {{ comment.name }}
 {{ comment.created }}
 </p>
-{{ comment.body|linebreaks }}
+<p style="color: #fff;">{{ comment.body|linebreaks }}</p>
 </div>
 {% empty %}
 <p>There are no comments.</p>

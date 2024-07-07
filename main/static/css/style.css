@@ -2,35 +2,46 @@ body {
     margin:0;
     padding:0;
     font-family:helvetica, sans-serif; 
+    padding: 20px 0px 0px 0px;
+}
+
+p{
+    color: #fff;
+    font-family:'Courier New', Courier, monospace;
 }
 
 a { 
-    color:#00abff;
+    color:#A259FF;
     text-decoration:none; 
+    font-family:'Courier New', Courier, monospace;
+    font-size: 20px;
 }
 
 h1 { 
     font-weight:normal;
-    border-bottom:1px solid #bbb;
-    padding:0 0 10px 0;
+    color: #fff;
 }
 
 h2 {
     font-weight:normal;
-    margin:30px 0 0;
+    color: #fff;
 }
 
 #content { 
     float:left;
-    width:60%;
-    padding:0 0 0 30px; 
+    display: flex;
+    flex-direction: column;
+    width:400px;
+    padding:10px 30px 10px 30px;
+    background-color: #3b3b3b;
+    border-radius: 20px;
 }
 
 #sidebar { 
     float:right;
     width:30%;
     padding:10px;
-    background:#efefef; 
+    background:#666; 
     height:100%;
 }
 
@@ -51,25 +62,29 @@ p.date {
 label { 
     float:left;
     clear:both;
-    color:#333;
+    color:#fff;
     margin-bottom:4px; 
 }
 input, textarea { 
     clear:both;
     float:left;
     margin:0 0 10px;
-    background:#ededed;
+    background:#2b2b2b;
+    color: #fff;
     border:0;
     padding:6px 10px;
     font-size:12px;
+    outline: none;
+    border-radius: 10px;
 }
 input[type=submit] {
     font-weight:bold;
     background:#00abff;
-    color:#fff;
+    color:#2b2b2b;
     padding:10px 20px;
     font-size:14px;
     text-transform:uppercase; 
+    cursor: pointer;
 }
 .errorlist { 
     color:#cc0033;

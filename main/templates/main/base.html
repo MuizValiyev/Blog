@@ -7,14 +7,10 @@
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
+<body style="background-color: #2b2b2b; display: flex; justify-content: center; align-items: center;">
     <div id="content">
         {% block content %}
         {% endblock %}
-    </div>
-    <div id="sidebar">
-        <h2>My Blog</h2>
-        <p>This is my blog.</p>
     </div>
 </body>
 </html>

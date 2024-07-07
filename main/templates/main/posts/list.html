@@ -1,19 +1,21 @@
 {% extends 'main/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'main/css/style.css' %}">
 
 {% block title  %} My Blog {% endblock %}
 
 {% block content %}
     {% for post in posts %}
     <h2>
-        <a href="{{ post.get_absolute_url }}">
+        <a style="color: #A259FF;" href="{{ post.get_absolute_url }}">
             {{ post.title }}
         </a>
     </h2>
-    <p class="tags">Tags: {{ post.tags.all|join:", " }}</p>
-    <p class="date">
+    <p style="color: #fff;" class="tags">Tags: {{ post.tags.all|join:", " }}</p>
+    <p class="date" style="color: #fff;">
         Published {{ post.publish }} by {{ post.author }}
     </p>
-    {{ post.body|truncatewords:30|linebreaks }}
+    <p style="color: #fff;">{{ post.body|truncatewords:30|linebreaks }}</p>
     {% endfor %}
     {% include 'main/paginator.html' with page=posts %}
     {% endblock %}
