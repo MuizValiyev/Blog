@@ -1,13 +1,14 @@
 from django.shortcuts import get_object_or_404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post, Coment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .forms import EmilPostForm, ComentForm
+from .forms import EmilPostForm, ComentForm, PostForm
 from django.core.mail import send_mail
 from django.views.decorators.http import require_POST
 from django.template.loader import render_to_string
 from taggit.models import Tag
 from django.db.models import Count
+from django.utils.text import slugify
 
 def post_list(request, tag_slug=None):
     post = Post.published.all()
@@ -75,3 +76,19 @@ def post_comment(request, post_id):
         comment.post = post
         comment.save()
     return render(request, 'main/posts/comment.html', {'post': post, 'form': form, 'comment': comment})
+
+
+
+def add_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user 
+            post.slug = slugify(post.title) 
+            post.save()
+            form.save_m2m()
+            return redirect('main:post_list')
+    else:
+        form = PostForm()
+    return render(request, 'main/posts/add_post.html', {'form': form})

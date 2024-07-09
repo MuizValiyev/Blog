@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+{% block title %}Add Post{% endblock %}
+{% block content %}
+    <h1>Add Post</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+{% endblock %}
+
+<style>
+    form{
+        height: 600px;
+        width: 600px;
+        display: flex;
+        flex-direction: column;
+    }
+    #content{
+        display: flex;
+        flex-direction: column;
+        height: 600px;
+    }
+</style>
