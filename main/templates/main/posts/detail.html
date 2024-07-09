@@ -13,6 +13,17 @@ Published {{ post.publish }} by {{ post.author }}
     </p>
 </a>
 
+
+<h2>Similar posts</h2>
+{% for post in similar_posts %}
+<p>
+<a href="{{ post.get_absolute_url }}" style="font-size: 16px;">{{ post.title }}</a>
+</p>
+{% empty %}
+<p style="color: #fff;">There are no similar posts yet.</p>
+{% endfor %}
+
+
 {% with comments.count as total_comments %}
 <h2 style="color: #fff;">
 {{ total_comments }} comment{{ total_comments|pluralize }}
