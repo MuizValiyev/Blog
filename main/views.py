@@ -85,7 +85,7 @@ def add_post(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user 
-            post.slug = slugify(post.title) 
+            post.slug = slugify(post.title)
             post.save()
             form.save_m2m()
             return redirect('main:post_list')

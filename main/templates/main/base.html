@@ -1,16 +1,36 @@
+{% load blog_tags %}
 {% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: #2b2b2b; display: flex; flex-direction: column; justify-content: space-between;">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} {% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
 </head>
-<body style="background-color: #2b2b2b; display: flex; justify-content: center;align-items: center;">
-    <div id="content" >
+
+<body style="padding: 50px 0px 0px 0px; display: flex; flex-direction: row; gap: 20px; justify-content: center;">
+    <div id="content">
         {% block content %}
         {% endblock %}
     </div>
+    <div id="sidebar" style="background-color: #3b3b3b; border-radius: 10px; width: 300px; padding: 20px;">
+        <h2 style="margin: 0;">My blog</h2>
+        <p>
+            This is my blog.
+            <br><br>
+            I've written {% total_posts %} posts so far.
+            </p>
+            <h3 style="color: #fff;">Latest posts</h3>
+            {% show_latest_posts 3 %}
+
+            <hr style="width: 100%; border: 1px solid #A259FF; margin-top: 20px;">
+            <a href="{% url 'main:add' %}" style="display: flex; width: 200px;height: 40px; border-radius: 10px;background-color: #A259FF; justify-content: center;align-items: center; margin-top: 20px;">
+                <p style="color: #fff;">Add Post</p>
+            </a>
+    </div>
 </body>
+
 </html>

@@ -1,8 +1,7 @@
 body { 
     margin:0;
-    padding:0;
     font-family:helvetica, sans-serif; 
-    padding: 20px 0px 0px 0px;
+    padding: 0;
 }
 
 p{
@@ -14,7 +13,7 @@ a {
     color:#A259FF;
     text-decoration:none; 
     font-family:'Courier New', Courier, monospace;
-    font-size: 20px;
+    font-size: 12px;
 }
 
 h1 { 
@@ -32,14 +31,14 @@ h2 {
     display: flex;
     flex-direction: column;
     width:400px;
-    padding:10px 30px 10px 30px;
+    padding: 20px 30px;
     background-color: #3b3b3b;
     border-radius: 20px;
 }
 
 #sidebar { 
     float:right;
-    width:30%;
+    width:300px;
     padding:10px;
     background:#666; 
     height:100%;

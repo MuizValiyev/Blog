@@ -14,7 +14,7 @@
 {% for post in posts %}
 
 <h2>
-    <a style="color: #A259FF;" href="{{ post.get_absolute_url }}">
+    <a style="color: #A259FF; font-size: 20px;" href="{{ post.get_absolute_url }}">
         {{ post.title }}
     </a>
 </h2>
@@ -34,10 +34,5 @@
     <p style="color: #fff;">{{ post.body|truncatewords:30|linebreaks }}</p>
     {% endfor %}
     {% include 'main/paginator.html' with page=posts %}
-    
-    <hr style="width: 100%; border: 1px solid #A259FF; margin-top: 20px;">
-    
-    <a href="{% url 'main:add' %}" style="display: flex; width: 200px;height: 40px; border-radius: 10px;background-color: #A259FF; justify-content: center;align-items: center; margin-top: 20px;">
-        <p style="color: #fff;">Add Post</p>
-    </a>
+        
     {% endblock %}
