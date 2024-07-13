@@ -1,11 +1,12 @@
 {% extends "main/base.html" %}
+{% load blog_tags %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
 <h1 style="color: #fff;">{{ post.title }}</h1>
 <p class="date" style="color: #fff;">
 Published {{ post.publish }} by {{ post.author }}
 </p>
-{{ post.body|linebreaks }}
+{{ post.body|markdown }}
 
 <a style="background-color: #A259FF; width: 200px; height: 40px; text-align: center; border-radius: 10px;" href="{% url "main:post_share" post.id %}">
     <p style=" width: 200px;color: #fff; height: 40px; line-height: 40px;margin: 0; font-size: 12px;">

@@ -1,5 +1,6 @@
 {% extends 'main/base.html' %}
 {% load static %}
+{% load blog_tags %}
 <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
 
 {% block title  %} My Blog {% endblock %}
@@ -31,7 +32,7 @@
     <p class="date" style="color: #fff;">
         Published {{ post.publish }} by {{ post.author }}
     </p>
-    <p style="color: #fff;">{{ post.body|truncatewords:30|linebreaks }}</p>
+    <p style="color: #fff;">{{ post.body|markdown|truncatewords_html:30 }}</p>
     {% endfor %}
     {% include 'main/paginator.html' with page=posts %}
         
