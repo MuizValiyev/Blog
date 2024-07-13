@@ -9,4 +9,4 @@ services:
       - ./static:/app/static
       - ./media:/app/media
     ports:
-      - 8888:8000
+      - 8000:8000
