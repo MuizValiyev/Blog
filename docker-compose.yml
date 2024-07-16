@@ -9,4 +9,25 @@ services:
       - ./static:/app/static
       - ./media:/app/media
     ports:
-      - 8000:8000
+      - 8001:8001
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_NAME=database
+      - DATABASE_USER=muiz
+      - DATABASE_PASSWORD=123123123
+
+  db:
+    image: postgres
+    container_name: mysite-db
+    restart: always
+    environment:
+      POSTGRES_DB: database
+      POSTGRES_USER: muiz
+      POSTGRES_PASSWORD: 123123123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
