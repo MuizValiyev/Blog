@@ -23,6 +23,7 @@ ALLOWED_HOSTS = ['*']
 SITE_ID = 1 
 
 INSTALLED_APPS = [
+    'jazzmin',
     'main.apps.MainConfig',
     'django.contrib.admin',
     'django.contrib.auth',
